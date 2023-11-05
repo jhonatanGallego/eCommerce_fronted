@@ -1,0 +1,40 @@
+<div>
+  <div class="d-flex justify-content-between">
+    <h4>Crear un nuevo producto</h4>
+    <a href="#" routerLink="/product/index" class="btn btn-primaryt">Regresar</a>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group row">
+      <div class="col-md-6">
+        <label for="title">Nombre:</label>
+        <input formControlName="nombre" id="nombre" type="text" class="form-control" title="Nombre del producto">
+        <br>
+        <label for="title">Categoria:</label>
+        <br>
+        <select required type="text" class="input" formControlName="categoria" name="categoria" id="categoria" title="Categoria">
+          <option value="-1" selected>Seleccionar</option>
+          <option value="ROPA">Ropa</option>
+          <option value="TECNOLOGIA">Tecnologia</option>
+          <option value="HOGAR">Hogar</option>
+          <option value="VEHICULO">Vehiculo</option>
+          <option value="OTROS">Otros</option>
+        </select>
+        <br>
+        <br>
+        <label for="title">Descripción</label>
+        <input formControlName="descripcion" id="descripcion" type="text" class="form-control"
+          title="Descripción del producto">
+        <br>
+        <label for="title">Precio unidad:</label>
+        <input formControlName="precio" id="precio" type="number" class="form-control" title="Precio del producto">
+        <br>
+        <label for="title">Imagen:</label>
+        <input formControlName="imagen" id="imagen" type="text" class="form-control" title="Imagen del producto">
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+      Crear
+    </button>
+  </form>
+</div>

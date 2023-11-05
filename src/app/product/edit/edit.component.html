@@ -1,0 +1,67 @@
+<div class="container">
+
+  <div class="d-flex justify-content-between">
+    <h4>Editar producto</h4>
+    <a href="#" routerLink="/product/index" class="btn btn-primaryt">Regresar</a>
+  </div>
+
+  <hr>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="form-group row">
+      <div class="col-md-6 ">
+        <label for="title">Nombre:</label>
+        <input formControlName="nombre" [(ngModel)]="product.nombre" id="nombre" type="text" class="form-control"
+          title="Nombre del producto">
+      </div>
+    </div>
+    <br>
+    <div class="form-group row">
+      <div class="col-md-6 ">
+        <br>
+        <label for="title">Categoria:</label>
+        <br>
+        <select required type="text" class="input" formControlName="categoria" [(ngModel)]="product.categoria" name="categoria" id="categoria"
+          title="Categoria">
+          <option value="-1" selected>Seleccionar</option>
+          <option value="ROPA">Ropa</option>
+          <option value="TECNOLOGIA">Tecnologia</option>
+          <option value="HOGAR">Hogar</option>
+          <option value="VEHICULO">Vehiculo</option>
+          <option value="OTROS">Otros</option>
+        </select>
+        <br>
+      </div>
+    </div>
+    <br>
+    <div class="form-group row">
+      <div class="col-md-6 ">
+        <label for="descripcion">Descripcion:</label>
+        <input [(ngModel)]="product.descripcion" formControlName="descripcion" id="descripcion" type="text"
+          class="form-control" title="descripcion del producto">
+      </div>
+    </div>
+    <br>
+    <div class="form-group row">
+      <div class="col-md-6 ">
+        <label for="precio">Precio por unidad:</label>
+        <input formControlName="precio" [(ngModel)]="product.precio" id="precio" type="number" class="form-control"
+          title="Precio del producto">
+      </div>
+    </div>
+    <br>
+    <div class="form-group row">
+      <div class="col-md-6 ">
+        <label for="imagen">Imagen:
+          <img class="img-fluid img-thumbnail" alt="{{product.imagen}}" src="{{product.imagen}}" width="100">
+        </label>
+        
+        <input [(ngModel)]="product.imagen" formControlName="imagen" id="imagen" type="text" class="form-control"
+          title="imagen del producto"
+          >       
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+  </form>
+</div>
